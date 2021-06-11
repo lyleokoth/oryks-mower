@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+   <!-- Values passed by command line input -->
+
+   <arg name="paused"       default="false" />
+   <arg name="use_sim_time" default="true" />
+   <arg name="gui"          default="true" />
+   <arg name="headless"     default="false" />
+   <arg name="debug"        default="false" />
+
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+
+   <include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/>
+
+   <arg name="model" default="$(find oryksmower_description)/urdf/oryksmower.xacro"/>
+   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+
+   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+</launch>
