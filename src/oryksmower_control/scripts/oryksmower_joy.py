@@ -24,7 +24,7 @@ def start():
     #Subscribe to joystick inputs on topic joy
     rospy.Subscriber("joy", Joy, callback)
     #Starts the node
-    rospy.init_node('JoyToBot')
+    rospy.init_node('JoyToOryksMower')
     rospy.spin()
 
 if __name__ == '__main__':

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find oryksmower_gazebo)/launch/oryksmower_gazebo.launch" />
+    <node pkg="oryksmower_control" type="simple_twist_pub.py" 
+    name="simple_twist_pub">        
+    </node>
+</launch>
